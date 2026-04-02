@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>AI kiểm tra sữa</title>
+
+<style>
+
+body {
+  font-family: "Times New Roman";
+  background: #f7f5f2;
+  margin: 0;
+}
+
+/* NÚT QUAY LẠI */
+.back-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  font-size: 22px;
+  text-decoration: none;
+  background: #3e2c1c;
+  color: white;
+  padding: 10px 14px;
+  border-radius: 50%;
+}
+
+/* HEADER */
+.header {
+  text-align: center;
+  padding: 25px;
+}
+
+h1 {
+  color: #3e2c1c;
+  margin: 0;
+}
+
+/* KHUNG CHÍNH */
+.container {
+  width: 900px;
+  margin: auto;
+  text-align: center;
+}
+
+/* KHUNG THÔNG TIN AI */
+.info-box {
+  margin-top: 10px;
+  background: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  border-left: 5px solid #3e2c1c;
+  text-align: left;
+}
+
+/* NÚT AI */
+.start-btn {
+  margin: 50px auto;
+  display: block;
+  padding: 15px 30px;
+  font-size: 20px;
+  background: #3e2c1c;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.start-btn:hover {
+  background: #5a3e2b;
+  transform: scale(1.05);
+}
+
+/* GHI CHÚ */
+.note {
+  margin-top: 20px;
+  color: #555;
+  font-style: italic;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NÚT QUAY LẠI -->
+<a href="index.html" class="back-btn">⬅</a>
+
+<div class="header">
+  <h1>HỆ THỐNG KIỂM TRA SỮA BẰNG AI</h1>
+</div>
+
+<div class="container">
+
+<!-- THÔNG TIN -->
+<div class="info-box">
+  <h3>Thông tin AI</h3>
+
+  <p>Trong mô hình trang trại bò sữa MilkWay, công nghệ trí tuệ nhân tạo (AI) được sử dụng để hỗ trợ nhận diện chất lượng sữa thông qua hình ảnh.</p>
+
+  <p>Hệ thống được xây dựng bằng Teachable Machine, cho phép AI học từ dữ liệu hình ảnh đã được huấn luyện trước đó để phân biệt giữa sữa đạt chuẩn và không đạt chuẩn.</p>
+
+  <p>Người dùng chỉ cần bấm nút bên dưới để truy cập hệ thống AI và thực hiện kiểm tra trực tiếp.</p>
+</div>
+
+<!-- NÚT KIỂM TRA -->
+<button class="start-btn" onclick="openAI()">
+  🔍 Kiểm tra bằng AI
+</button>
+
+<p class="note">
+* Hệ thống AI sẽ mở trong một tab mới để đảm bảo hoạt động ổn định.
+</p>
+
+</div>
+
+<script>
+function openAI() {
+  window.open(
+    "https://teachablemachine.withgoogle.com/models/rnY5DhMnX/",
+    "_blank"
+  );
+}
+</script>
+
+</body>
+</html>
