@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Trang trại MILKWAY</title>
+
+<!-- chống cache -->
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+
+<style>
+
+body {
+  margin: 0;
+  font-family: "Times New Roman", serif;
+}
+
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #3e2c1c;
+  color: white;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 15px;
+  z-index: 1000;
+}
+
+.nav-item {
+  position: relative;
+  cursor: pointer;
+}
+
+/* Dropdown */
+.dropdown {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  background: rgba(0,0,0,0.9);
+  width: 250px;
+  display: none;
+  flex-direction: column;
+}
+
+.dropdown div {
+  padding: 10px;
+  border-bottom: 1px solid #333;
+}
+
+.dropdown div:hover {
+  background: #222;
+}
+
+/* Sub */
+.sub-dropdown {
+  display: none;
+  padding-left: 10px;
+  background: #111;
+}
+
+.member-info {
+  display: none;
+  font-size: 14px;
+  color: #ccc;
+}
+
+/* HERO */
+.hero {
+  height: 100vh;
+  background: url("cow.jpg") no-repeat center/cover;
+  position: relative;
+}
+
+/* TEXT (ĐÃ FIX KHÔNG BỊ LỆCH NỮA) */
+.hero-text {
+  position: absolute;
+  top: 60%;              /* 👈 FIX CHÍNH */
+  right: 60px;
+  transform: translateY(-50%);
+  color: #1b8f3a;
+  text-align: right;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.3); /* 👈 nổi nhẹ */
+}
+
+.hero-text h1 {
+  font-size: 48px;
+  margin: 0;
+}
+
+.hero-text p {
+  margin-top: 12px;
+  font-size: 19px;
+  color: #3e2c1c;
+  font-weight: 500;
+}
+
+/* CONTENT */
+.container {
+  padding: 50px;
+  margin-top: 100px;
+}
+
+.menu {
+  display: flex;
+  gap: 20px;
+}
+
+.card {
+  flex: 1;
+  background: #2e7d32;
+  color: white;
+  padding: 25px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.card:hover {
+  background: #1b5e20;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="navbar">
+  <div class="nav-item">Trang chủ</div>
+
+  <div class="nav-item" onclick="toggleMenu(event)">
+    Liên hệ
+
+    <div id="dropdown" class="dropdown">
+
+      <div onclick="toggleSub(event,'gmail')">
+        Gmail
+        <div id="gmail" class="sub-dropdown">
+          milkywayfarm@gmail.com
+        </div>
+      </div>
+
+      <div onclick="toggleSub(event,'members')">
+        Thành viên
+
+        <div id="members" class="sub-dropdown">
+
+          <div onclick="toggleSub(event,'tv1')">
+            Đinh Huỳnh Ái Mỹ
+            <div id="tv1" class="member-info">
+              <p>Lớp: 11T2</p>
+              <p>SĐT: 0907891516</p>
+            </div>
+          </div>
+
+          <div onclick="toggleSub(event,'tv2')">
+            Lê Nguyễn An Thi
+            <div id="tv2" class="member-info">
+              <p>Lớp: 11T2</p>
+              <p>SĐT: 0917031466</p>
+            </div>
+          </div>
+
+          <div onclick="toggleSub(event,'tv3')">
+            Đặng Bảo Ngọc
+            <div id="tv3" class="member-info">
+              <p>Lớp: 11T2</p>
+              <p>SĐT: 0834778177</p>
+            </div>
+          </div>
+
+          <div onclick="toggleSub(event,'tv4')">
+            Đinh Lâm Thiên Thanh
+            <div id="tv4" class="member-info">
+              <p>Lớp: 11T2</p>
+              <p>SĐT: 0353742876</p>
+            </div>
+          </div>
+
+          <div onclick="toggleSub(event,'tv5')">
+            Nguyễn Trần Song Doanh
+            <div id="tv5" class="member-info">
+              <p>Lớp: 11Đ</p>
+              <p>SĐT: 0912757800</p>
+            </div>
+          </div>
+
+          <div onclick="toggleSub(event,'tv6')">
+            Ngô Ngọc Minh Tuệ
+            <div id="tv6" class="member-info">
+              <p>Lớp: 11Đ</p>
+              <p>SĐT: 0949238241</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-text">
+    <h1>TRANG TRẠI MILKWAY</h1>
+    <p>Chăn nuôi thông minh - Sử dụng trí tuệ nhân tạo</p>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="container">
+  <div class="menu">
+
+    <div class="card" onclick="openPage('infor')">
+      <h3>Thông tin trang trại</h3>
+    </div>
+
+    <div class="card" onclick="openPage('ai')">
+      <h3>AI kiểm tra sữa</h3>
+    </div>
+
+  </div>
+</div>
+
+<script>
+
+function openPage(page) {
+  window.location.href = page + ".html";
+}
+
+function toggleMenu(e) {
+  e.stopPropagation();
+  let d = document.getElementById("dropdown");
+  d.style.display = d.style.display === "flex" ? "none" : "flex";
+}
+
+function toggleSub(e,id) {
+  e.stopPropagation();
+  let el = document.getElementById(id);
+  el.style.display = el.style.display === "block" ? "none" : "block";
+}
+
+document.addEventListener("click", function() {
+  document.getElementById("dropdown").style.display = "none";
+});
+
+</script>
+
+</body>
+</html>
